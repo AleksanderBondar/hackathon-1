@@ -1,0 +1,64 @@
+{
+  "resolvers": {
+    "Query.user": {
+      "resolve": {
+        "name": "lib/Query/user"
+      }
+    },
+    "Query.public": {
+      "resolve": {
+        "name": "lib/Query/public"
+      }
+    },
+    "Mutation.user": {
+      "resolve": {
+        "name": "lib/Mutation/user"
+      }
+    },
+    "UserQuery.me": {
+      "resolve": {
+        "name": "lib/UserQuery/me"
+      }
+    },
+    "PublicQuery.listServices": {
+      "resolve": {
+        "name": "lib/PublicQuery/listServices"
+      }
+    },
+    "PublicQuery.getService": {
+      "resolve": {
+        "name": "lib/PublicQuery/getService"
+      }
+    },
+    "UserMutation.registerService": {
+      "resolve": {
+        "name": "lib/UserMutation/registerService"
+      }
+    },
+    "UserMutation.updateService": {
+      "resolve": {
+        "name": "lib/UserMutation/updateService"
+      }
+    },
+    "Query.auth": {
+      "resolve": {
+        "name": "lib/Query/auth"
+      }
+    },
+    "PublicQuery.GenerateGithubOAuthLink": {
+      "resolve": {
+        "name": "lib/PublicQuery/GenerateGithubOAuthLink"
+      }
+    },
+    "AuthorizeQuery.GetRepositoryInformation": {
+      "resolve": {
+        "name": "lib/AuthorizeQuery/GetRepositoryInformation"
+      }
+    },
+    "PublicQuery.GenerateGithubJWT": {
+      "resolve": {
+        "name": "lib/PublicQuery/GenerateGithubJWT"
+      }
+    }
+  }
+}
