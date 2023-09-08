@@ -1,0 +1,70 @@
+type Query{
+	auth(
+		token: String!
+	): AuthorizeQuery
+	public: PublicQuery
+}
+
+type Mutation{
+	auth: AuthorizeMutation
+}
+
+type AuthorizeQuery{
+	GetRepositoryInformation(
+		owner: String!
+		repository: String!
+	): Repository!
+}
+
+type AuthorizeMutation{
+	getRepository(
+		owner: String!
+		repository: String!
+	): Repository!
+}
+
+type PublicQuery{
+	GenerateGithubOAuthLink(
+		state: String
+		redirectUri: String!
+	): String!
+	GenerateGithubJWT(
+		code: String!
+		redirectUri: String!
+	): String!
+}
+
+type Repository{
+	id: String!
+	fullName: String!
+	private: Boolean
+	owner: User
+	contributors: [User!]!
+	createdAt: String!
+	pushedAt: String!
+	updatedAt: String!
+	archived: Boolean!
+	license: License
+	stars: Int
+	forks: Int
+	open_issues: Int
+	watchers: Int
+}
+
+type User{
+	login: String!
+	id: String!
+	avatarUrl: String!
+	profileUrl: String!
+	isAdmin: String!
+}
+
+type License{
+	name: String!
+	key: String!
+}
+
+schema{
+	query: Query
+	mutation: Mutation
+}
