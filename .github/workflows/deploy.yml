@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      OUTPUT_DIR: ./packages/landing/out
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,12 +23,14 @@ jobs:
       - name: Build and test packages
         run: npm run build
 
-      - name: List files in OUTPUT_DIR
-        run: |
-          ls -R ${{ env.OUTPUT_DIR }}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./packages/landing/out
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ env.OUTPUT_DIR }}
+          publish_dir: ./packages/landing/out
