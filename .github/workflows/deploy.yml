@@ -1,14 +1,8 @@
-name: Monorepo CI
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      OUTPUT_DIR: ./packages/landing/out
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,3 +19,9 @@ jobs:
       - name: Build and test packages
         run: |
           npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.OUTPUT_DIR }}
