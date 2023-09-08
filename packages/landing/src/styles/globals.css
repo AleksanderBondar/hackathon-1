@@ -2,26 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.cm-scroller::-webkit-scrollbar {
+  width: 0.6rem !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.cm-scroller::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb {
+  background: #55566d !important;
+}
+
+
+
+@layer base {
+  body {
+    @apply min-h-screen bg-neutral-light box-border
   }
+
+  button {
+    @apply box-border cursor-pointer
+  }
+
+  select,
+  a {
+    @apply cursor-pointer
+  }
+
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+
+
+button,
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 62.5%;
+  text-size-adjust: none;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+select {
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style: none;
 }
