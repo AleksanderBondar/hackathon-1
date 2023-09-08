@@ -18,7 +18,7 @@
 
 @layer base {
   body {
-    @apply min-h-screen bg-neutral-light box-border
+    @apply min-h-screen bg-mainBg box-border text-[#fff]
   }
 
   button {
@@ -29,15 +29,22 @@
   a {
     @apply cursor-pointer
   }
+}
+
+@layer components {
+  .navLink {
+
+    @apply text-[#fff] text-shadow text-[1.4rem] font-bold leading-[1.6rem] tracking-[0.2px]
+  }
+
+
 
 
 }
 
-
-
-
-button,
-
+.radialGradient {
+  background: radial-gradient(circle, rgba(0, 152, 255, 1) 0%, rgba(0, 152, 255, 0) 70%);
+}
 
 html {
   scroll-behavior: smooth;
