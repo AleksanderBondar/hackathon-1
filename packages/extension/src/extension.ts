@@ -1,28 +1,50 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import { TestView } from "./view/TestView";
+import { generateReadme } from "./utils";
+import { Credentials } from "./credentials";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "helloworld" is now active!');
+const commandGenerator = (
+  context: vscode.ExtensionContext,
+  name: string,
+  callback: () => void
+) => {
+  let dispose = vscode.commands.registerCommand(`fosscode.${name}`, callback);
+  context.subscriptions.push(dispose);
+};
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  let disposable = vscode.commands.registerCommand(
-    "helloworld.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
-      // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from HelloWorld!");
+export async function activate(context: vscode.ExtensionContext) {
+  const credentials = new Credentials();
+  await credentials.initialize(context);
+
+  commandGenerator(context, "helloWorld", () => {
+    vscode.window.showInformationMessage("Hello World from HelloWorld!");
+  });
+
+  const disposable = vscode.commands.registerCommand(
+    "fosscode.getGitHubUser",
+    async () => {
+      /**
+       * Octokit (https://github.com/octokit/rest.js#readme) is a library for making REST API
+       * calls to GitHub. It provides convenient typings that can be helpful for using the API.
+       *
+       * Documentation on GitHub's REST API can be found here: https://docs.github.com/en/rest
+       */
+      const octokit = await credentials.getOctokit();
+      const userInfo = await octokit.users.getAuthenticated();
+
+      vscode.window.showInformationMessage(
+        `Logged into GitHub as ${userInfo.data.login}`
+      );
     }
   );
 
   context.subscriptions.push(disposable);
+
+  new TestView(context);
+
+  commandGenerator(context, "generateReadme", () => {
+    generateReadme(credentials);
+  });
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}

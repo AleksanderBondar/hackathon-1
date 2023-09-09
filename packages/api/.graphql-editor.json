@@ -1,0 +1,12 @@
+{
+    "namespace": "aexol-internal",
+    "project": "hackaton-arkadiusz",
+    "projectVersion": "latest",
+    "typingsEnv": "node",
+    "typingsHost": "http://localhost:8080/",
+    "typingsDir": "./src",
+    "backendSrc": "./src",
+    "backendLib": "./lib",
+    "schemaDir": "./",
+    "integrationPath": "./src/index.ts"
+}

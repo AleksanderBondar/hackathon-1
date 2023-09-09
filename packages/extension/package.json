@@ -1,6 +1,6 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloWorld",
+  "name": "fosscode-extenstion",
+  "displayName": "FOSSCode",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +14,35 @@
   "contributes": {
     "commands": [
       {
-        "command": "helloworld.helloWorld",
+        "command": "fosscode.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "fosscode.generateReadme",
+        "title": "Generate Readme"
+      },
+      {
+        "command": "fosscode.getGitHubUser",
+        "title": "getGitHubUser"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "testView",
+          "title": "Package Explorer",
+          "icon": "media/dep.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "testView",
+          "name": "Test View Drag and Drop"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run build",
@@ -28,15 +53,18 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.82.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.47.0",
     "glob": "^10.3.3",
     "mocha": "^10.2.0",
-    "typescript": "^5.1.6",
-    "@vscode/test-electron": "^2.3.4"
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.1"
   }
 }
