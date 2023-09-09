@@ -1,3 +1,3 @@
 export * from "./FirstSection";
-export * from "./SecondSEction";
+export * from "./SecondSection";
 export * from "./ThirdSection";
