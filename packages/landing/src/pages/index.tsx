@@ -10,7 +10,7 @@ const blinker = Blinker({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={`${blinker.className} w-full relative`}>
+    <main className={`${blinker.className} w-full relative overflow-hidden`}>
       <GradientBall className="absolute top-0 left-1/4 opacity-20" />
       {/* <GradientBall className="absolute top-[20rem] left-1/4 opacity-20" /> */}
       <FirstSection />

@@ -17,34 +17,36 @@ const config: Config = {
       },
     },
     backgroundImage: {
+      mainBg:
+        "linear-gradient(180deg, rgba(14,19,47,1) 0%, rgba(12,11,32,1) 30%, rgba(6,2,15,1) 80%, rgba(14,13,27,1) 100%);",
+
       buttonNav:
         "linear-gradient(180deg, rgba(206, 206, 206, 0.06) 0%, rgba(128, 116, 166, 0.08) 100%)",
       buttonSection: "linear-gradient(41deg, #0065A9 0%, #0098FF 100%)",
-      mainBg:
-        "linear-gradient(180deg, rgba(14,19,47,1) 0%, rgba(12,11,32,1) 30%, rgba(6,2,15,1) 80%, rgba(14,13,27,1) 100%);",
-      appName:
-        "linear-gradient(272deg, #0065A9 -7.86%, #FFF 43.19%, #0065A9 98.67%)",
-      sectionHeader:
-        "linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.75) 100%);",
-      tiles:
+
+      tilesSecondSection:
         "linear-gradient(180deg, rgba(206, 206, 206, 0.12) 0%, rgba(128, 116, 166, 0.12) 100%);",
-      thirdSectionHeader:
-        "linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.75) 100%);",
+
       thirdSectionTiles:
         "linear-gradient(180deg, rgba(206, 206, 206, 0.06) 0%, rgba(128, 116, 166, 0.08) 100%);",
+
+      textFirstSection:
+        "linear-gradient(272deg, #0065A9 -7.86%, #FFF 43.19%, #0065A9 98.67%)",
+      textSection:
+        "linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.75) 100%);",
     },
     colors: {
       neutral: {
-        DEFAULT: "#444444",
-        light: "#F3F3F3",
-        dark: "#252526",
+        DEFAULT: "#B5BFCA",
+        light: "#ffffff80",
+        dark: "#232A2F",
       },
       main: {
         DEFAULT: "#0065A9",
         dark: "#007ACC",
         light: "#0098FF",
       },
-
+      dividers: { DEFAULT: "#232A2F" },
       background: {
         DEFAULT: "#05010D",
         navigation: "rgba(255, 255, 255, 0.02)",

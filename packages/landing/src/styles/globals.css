@@ -17,12 +17,26 @@
 
 
 @layer base {
+
+
   body {
     @apply min-h-screen bg-mainBg box-border text-[#fff]
   }
 
   button {
     @apply box-border cursor-pointer
+  }
+
+  h1 {
+    @apply text-[2.4rem] leading-[8.8rem] font-bold text-center
+  }
+
+  section {
+    @apply w-full px-[2rem] flex flex-col items-center justify-center relative
+  }
+
+  p {
+    @apply text-neutral-light text-[1.6rem] leading-[140%]
   }
 
   select,
@@ -37,6 +51,9 @@
     @apply text-[#fff] text-shadow text-[1.4rem] font-bold leading-[1.6rem] tracking-[0.2px]
   }
 
+  .textGradient {
+    @apply bg-clip-text text-[transparent]
+  }
 
 
 
@@ -65,10 +82,7 @@ html {
   box-sizing: border-box;
 }
 
-input,
-select {
-  font-size: 1.6rem;
-}
+
 
 ul {
   list-style: none;
